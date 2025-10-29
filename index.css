@@ -1,0 +1,123 @@
+    :root {
+      --bg: #0b0c10;
+      --muted: #aaa;
+      --accent: #7c3aed;
+      --radius: 14px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      background: radial-gradient(800px at 30% 20%, rgba(255, 68, 0, 0.1), transparent),
+                  radial-gradient(600px at 80% 80%, rgba(0, 13, 255, 0.08), transparent),
+                  var(--bg);
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Elementos decorativos sutiles */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    /* Vista previa GitHub */
+    .github-card {
+      position: absolute;
+      top: 80px;
+      left: 90;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      border-radius: var(--radius);
+      width: 320px;
+      height: 180px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(.2,.8,.3,1), background 0.3s;
+    }
+    /* Vista previa GitHub */
+    .github-card2 {
+      position: absolute;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      border-radius: var(--radius);
+      width: 620px;
+      height: 70px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.4s cubic-bezier(.2,.8,.3,1), background 0.3s;
+    }
+
+    .github-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .github-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .github-top img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .github-top strong {
+      font-size: 1.1rem;
+    }
+    .github-desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .github-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .github-footer span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Nombre abajo a la izquierda */
+    .name {
+      position: absolute;
+      bottom: 40px;
+      left: 60px;
+      font-family: "Bodoni Moda SC", serif;
+      font-weight: 700;
+      font-size: 4.4rem;
+      letter-spacing: 0.5px;
+      color: #f1f1f1;
+      user-select: none;
+    }
+
+    @media (max-width: 768px) {
+      .github-card { right: 20px; bottom: 60px; width: 260px; height: 160px; }
+      .name { left: 24px; bottom: 24px; font-size: 1.8rem; }
+    }
