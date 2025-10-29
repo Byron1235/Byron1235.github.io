@@ -10,17 +10,20 @@
       box-sizing: border-box;
     }
     body {
-      height: 100vh;
-      background: radial-gradient(800px at 30% 20%, rgba(255, 68, 0, 0.1), transparent),
-                  radial-gradient(600px at 80% 80%, rgba(0, 13, 255, 0.08), transparent),
+      min-height: 100vh;
+      background: radial-gradient(800px at 30% 20%, rgba(255, 68, 0, 0.261), transparent),
+                  radial-gradient(600px at 80% 80%, rgba(0, 13, 255, 0.186), transparent),
                   var(--bg);
       color: #fff;
       font-family: "Inter", sans-serif;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
+      padding-top: 5%;
+      padding-bottom: 5%;
     }
 
     /* Elementos decorativos sutiles */
@@ -36,9 +39,7 @@
 
     /* Vista previa GitHub */
     .github-card {
-      position: absolute;
       top: 80px;
-      left: 90;
       background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.08);
       backdrop-filter: blur(6px);
@@ -50,11 +51,23 @@
       flex-direction: column;
       justify-content: space-between;
       cursor: pointer;
+      margin-right: 5px;
       transition: transform 0.4s cubic-bezier(.2,.8,.3,1), background 0.3s;
     }
+
+    .main-container {
+  display: flex;
+  flex-direction: column; /* coloca los elementos uno debajo del otro */
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* espacio entre las cards y la sección */
+  width: 100%;
+}
+
+
     /* Vista previa GitHub */
     .github-card2 {
-      position: absolute;
+      bottom: 80px;
       background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.08);
       backdrop-filter: blur(6px);
@@ -106,9 +119,7 @@
 
     /* Nombre abajo a la izquierda */
     .name {
-      position: absolute;
-      bottom: 40px;
-      left: 60px;
+      top: 40px;
       font-family: "Bodoni Moda SC", serif;
       font-weight: 700;
       font-size: 4.4rem;
@@ -116,8 +127,79 @@
       color: #f1f1f1;
       user-select: none;
     }
+     /* Nombre abajo a la izquierda */
+    .name2 {
+      font-family: "Bodoni Moda SC", serif;
+      font-weight: 700;
+      font-size: 2.4rem;
+      letter-spacing: 0.5px;
+      color: #f1f1f1;
+      user-select: none;
+      justify-content: center;
+    }
 
     @media (max-width: 768px) {
       .github-card { right: 20px; bottom: 60px; width: 260px; height: 160px; }
-      .name { left: 24px; bottom: 24px; font-size: 1.8rem; }
+      .github-card2 { right: 20px; bottom: 60px; width: 260px; height: 160px; }
+
+      .name { left: 24px; bottom: 24px; font-size: 2.8rem; }
+      .name { left: 24px; bottom: 24px; font-size: 2.8rem; }
     }
+.cards-container {
+    display: flex;
+    gap: 10px; /* espacio entre tarjetas */
+    justify-content: center; /* opcional: centrar */
+    flex-wrap: wrap; /* que salten a la siguiente fila en pantallas pequeñas */
+}
+
+
+.showcase {
+  padding: 20px;
+}
+
+.show-grid {
+  display: flex;
+  flex-direction: column; /* vertical por defecto */
+  gap: 16px;
+}
+
+.show-item {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius, 12px);
+  padding: 20px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+/* Efecto hover opcional */
+.show-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.05);
+}
+
+/* Responsivo: en pantallas más grandes se alinean horizontalmente */
+@media (min-width: 768px) {
+  .show-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .show-item {
+    flex: 1 1 200px; /* ancho mínimo 200px, flexible */
+    max-width: 250px;
+  }
+}
+
+/* Fade-in simple */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
