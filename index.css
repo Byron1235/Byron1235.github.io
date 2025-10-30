@@ -64,12 +64,12 @@
     .github-card {
       top: 80px;
       background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1.3px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(6px);
       border-radius: var(--radius);
       width: 320px;
       height: 180px;
-      padding: 20px;
+      padding: 15px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
